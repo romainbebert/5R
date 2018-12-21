@@ -1,0 +1,27 @@
+Constants 
+    a11 = -22.5;
+    a12 = 0;
+    a21 = 22.5;
+    a22 = 0;
+    l = 17.8;
+    //*
+    q1 = 0;
+    q2 = pi;
+    /*/
+    x1 = 0;
+    x2 = 0;
+    //*/
+
+Variables 
+    //*
+    x1 in [-100,100];
+    x2 in [-100,100];
+    /*/
+    q1 in [-pi, pi];
+    q2 in [-pi, pi];
+    //*/
+
+Constraints
+    l^2 = (a11 + l*cos(q1) - x1)^2 + (a12 + l*sin(q1) - x2)^2;
+    l^2 = (a21 + l*cos(q2) - x1)^2 + (a22 + l*sin(q2) - x2)^2;
+end

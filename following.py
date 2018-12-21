@@ -1,10 +1,12 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
 #######################################################
-# TwoBars robot
+# FiveBars robot
 import math
 import numpy
 
 ##################################################
-# Definition of a RR robot with approximate architecture
+# Definition of a 5R robot with approximate architecture
 import robot
 
 nominal_architecture = [-22.5,0,22.5,0,17.8,17.8,17.8,17.8]
