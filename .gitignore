@@ -3,3 +3,5 @@ paving.py
 rtree/
 *.pyc
 demo_planning.py
+*.mnf
+*.mnf~

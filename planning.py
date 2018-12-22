@@ -10,7 +10,7 @@ import numpy
 import robot
 
 nominal_architecture = [-22.5,0,22.5,0,17.8,17.8,17.8,17.8]
-r5 = robot.FiveBars(nominal_architecture,seed=3, mode=0)
+r5 = robot.FiveBars(nominal_architecture,seed=3, mode=1)
 #~ Suite à la calibration, on a obtenu l'architecture suivante :
 calibrated_architecture = [-22.48910557, 0.2487764, 22.31083019, 0.19295762, 17.75206524, 17.75148665, 17.82798783, 18.18320809]
 
@@ -84,11 +84,10 @@ def display_path(rob,pav,spath,bcol='yellow',rcol='cyan'):
 Xori, Xdes = [0,-15], [0,15] 
 r5.ax.plot([Xori[0],Xdes[0]],[Xori[1],Xdes[1]],linestyle=':',marker='*',color='.3')
 r5.refresh()
-ori = list(paving_5R.boxes_intersecting(Xori,d=[1,2]))
-des = list(paving_5R.boxes_intersecting(Xdes,d=[1,2]))
-shortest_path=demo_planning.path_planner(paving_RR,neighborhood,ori[0],des[0])
-
-'''
 paving_5R = paving.Paving()
 paving_5R.load_mnf('5R-obs.mnf')
-'''
+ori = list(paving_5R.boxes_intersecting(Xori,d=[1,2]))
+des = list(paving_5R.boxes_intersecting(Xdes,d=[1,2]))
+
+neighborhood = paving_5R.adjacency_matrix()
+shortest_path=path_planner(paving_5R,neighborhood,ori[0],des[0])
