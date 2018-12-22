@@ -97,3 +97,5 @@ des = list(paving_5R.boxes_intersecting(Xdes,d=[1,2]))
 
 neighborhood = paving_5R.adjacency_matrix()
 shortest_path=path_planner(paving_5R,neighborhood,ori[0],des[0])
+
+#~ display_path(r5, paving_5R, shortest_path)
