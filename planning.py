@@ -10,7 +10,7 @@ import numpy
 import robot
 
 nominal_architecture = [-22.5,0,22.5,0,17.8,17.8,17.8,17.8]
-r5 = robot.FiveBars(nominal_architecture,seed=3, mode=1)
+r5 = robot.FiveBars(nominal_architecture,seed=3, mode=0)
 #~ Suite à la calibration, on a obtenu l'architecture suivante :
 calibrated_architecture = [-22.48910557, 0.2487764, 22.31083019, 0.19295762, 17.75206524, 17.75148665, 17.82798783, 18.18320809]
 
@@ -65,6 +65,12 @@ def path_planner(pav,nei,Bori,Bdes):
     else:
         print('   impossible to connect boxes!')
     return path
+
+def display_boxes(rob, pav):
+	for b in [i for i in range(len(pav.boxes)) if l[i]==l[ori[0]]]:
+	    pav.boxes[b].draw2D(rob.ax,1,2)
+	for b in [i for i in range(len(pav.boxes)) if l[i]!=l[ori[0]]]:
+	    pav.boxes[b].draw2D(rob.ax,1,2,ec='magenta')
 
 # Display a box path and actuate the robot along it
 def display_path(rob,pav,spath,bcol='yellow',rcol='cyan'):
